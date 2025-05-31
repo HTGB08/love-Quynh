@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hiệu ứng chữ động</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #000;
+      font-family: 'Arial', sans-serif;
+    }
+    .glitch {
+      position: relative;
+      font-size: 4rem;
+      color: white;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 0.2em;
+    }
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      color: #ff00c1;
+      animation: glitch-effect 3s infinite;
+    }
+    .glitch::after {
+      color: #00ffff;
+      animation: glitch-effect 2s infinite;
+    }
+    @keyframes glitch-effect {
+      0% {
+        left: -2px;
+        top: -2px;
+      }
+      25% {
+        left: 2px;
+        top: 0;
+      }
+      50% {
+        left: -1px;
+        top: 2px;
+      }
+      75% {
+        left: 1px;
+        top: -1px;
+      }
+      100% {
+        left: 0;
+        top: -2px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="glitch" data-text="💖Như Quỳnh💖 I Love You Anh Yêu Em Yêu Quỳnh">💖Như Quỳnh💖 I Love You Anh Yêu Em Yêu Quỳnh</div>
+</body>
+</html>
